@@ -54,3 +54,18 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+function game() {
+    let gameCount = 0
+
+    while (true) {
+        let playerChoice = prompt("Choose your warrior!")
+        playRound(playerChoice, getComputerChoice())
+        ++gameCount
+        if (gameCount == 5) {
+            let winnerMessage = (playerWins > computerWins) ? "You won the game! Congratulations! " : "You lost the game :("
+            playerWins = 0
+            computerWins = 0
+            return winnerMessage;
+        }
+    }
+}
