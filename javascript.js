@@ -71,3 +71,12 @@ function game() {
         }
     }
 }
+
+
+const rock = document.querySelector('.rock');
+const paper = document.querySelector('.paper');
+const scissors = document.querySelector('.scissors');
+
+rock.onclick = function () {console.log(playRound("rock", getComputerChoice()))}
+paper.onclick = function () {console.log(playRound("paper", getComputerChoice()))}
+scissors.onclick = function () {console.log(playRound("scissors", getComputerChoice()))}
