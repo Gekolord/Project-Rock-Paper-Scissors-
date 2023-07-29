@@ -15,8 +15,7 @@ function getComputerChoice() {
 function playRound(playerSelection, computerSelection) {
     switch (true) {
         case (playerSelection.toLowerCase() == "rock" && computerSelection == "rock"):
-            ++playerWins    
-            ++computerWins
+
             return "Tie!";
     
         case (playerSelection.toLowerCase() == "rock" && computerSelection == "paper"):
@@ -32,8 +31,7 @@ function playRound(playerSelection, computerSelection) {
             return "You win! Paper beats Rock";
 
         case (playerSelection.toLowerCase() == "paper" && computerSelection == "paper"):
-            ++playerWins    
-            ++computerWins
+
             return "Tie!";
 
         case (playerSelection.toLowerCase() == "paper" && computerSelection == "scissors"):  
@@ -49,8 +47,7 @@ function playRound(playerSelection, computerSelection) {
             return "You Win! Scissors beat Paper";    
         
         case (playerSelection.toLowerCase() == "scissors" && computerSelection == "scissors"):
-            ++playerWins    
-            ++computerWins
+
             return "Tie!";    
     }
 }
@@ -72,11 +69,22 @@ function game() {
     }
 }
 
+const results = document.querySelector('.results')
+const round = document.querySelector('.round')
+const message = document.querySelector('.message')
 
 const rock = document.querySelector('.rock');
 const paper = document.querySelector('.paper');
 const scissors = document.querySelector('.scissors');
 
-rock.onclick = function () {console.log(playRound("rock", getComputerChoice()))}
+rock.onclick = function () {
+    round.textContent = playRound("rock", getComputerChoice())
+    results.textContent = `player: ${playerWins} machine: ${computerWins}`
+    if (playerWins == 5 || computerWins == 5) {
+        message.textContent = (playerWins > computerWins) ? "You won the game! Congratulations! " : "You lost the game :("
+        playerWins = 0
+        computerWins = 0
+    }
+}
 paper.onclick = function () {console.log(playRound("paper", getComputerChoice()))}
 scissors.onclick = function () {console.log(playRound("scissors", getComputerChoice()))}
