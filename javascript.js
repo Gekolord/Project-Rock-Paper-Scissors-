@@ -78,13 +78,38 @@ const paper = document.querySelector('.paper');
 const scissors = document.querySelector('.scissors');
 
 rock.onclick = function () {
+    if (playerWins == 0 || computerWins == 0) {
+        message.textContent = ""
+    }
     round.textContent = playRound("rock", getComputerChoice())
     results.textContent = `player: ${playerWins} machine: ${computerWins}`
     if (playerWins == 5 || computerWins == 5) {
-        message.textContent = (playerWins > computerWins) ? "You won the game! Congratulations! " : "You lost the game :("
+        message.textContent = (playerWins > computerWins) ? "You won the game! Congratulations! Click any button above to start new game." : "You lost the game, click any button above to start new game."
         playerWins = 0
         computerWins = 0
     }
 }
-paper.onclick = function () {console.log(playRound("paper", getComputerChoice()))}
-scissors.onclick = function () {console.log(playRound("scissors", getComputerChoice()))}
+paper.onclick = function () {
+    if (playerWins == 0 || computerWins == 0) {
+        message.textContent = ""
+    }
+    round.textContent = playRound("paper", getComputerChoice())
+    results.textContent = `player: ${playerWins} machine: ${computerWins}`
+    if (playerWins == 5 || computerWins == 5) {
+        message.textContent = (playerWins > computerWins) ? "You won the game! Congratulations! Click any button above to start new game." : "You lost the game, click any button above to start new game."
+        playerWins = 0
+        computerWins = 0
+    }
+}
+scissors.onclick = function () {
+    if (playerWins == 0 || computerWins == 0) {
+        message.textContent = ""
+    }
+    round.textContent = playRound("scissors", getComputerChoice())
+    results.textContent = `player: ${playerWins} machine: ${computerWins}`
+    if (playerWins == 5 || computerWins == 5) {
+        message.textContent = (playerWins > computerWins) ? "You won the game! Congratulations! Click any button above to start new game." : "You lost the game, click any button above to start new game."
+        playerWins = 0
+        computerWins = 0
+    }
+}
